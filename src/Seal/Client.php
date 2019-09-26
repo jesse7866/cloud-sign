@@ -4,7 +4,7 @@
  * This file is part of the iyin/cloud-sign.
  *
  * (c) jesse <jesse7866@163.com>
-
+ *
  * This source file is subject to the MIT license that is bundled.
  * with this source code in the file LICENSE.
  */
@@ -17,7 +17,7 @@ use IYin\CloudSign\Kernel\Exceptions\InvalidArgumentException;
 class Client extends BaseClient
 {
     /**
-     * 根据企业信息生成章模接口
+     * 根据企业信息生成章模接口.
      *
      * @param array $data
      *
@@ -35,7 +35,7 @@ class Client extends BaseClient
     }
 
     /**
-     * 下载印章图片
+     * 下载印章图片.
      *
      * @param array $data
      *
@@ -53,7 +53,7 @@ class Client extends BaseClient
     }
 
     /**
-     * 下载签名图片
+     * 下载签名图片.
      *
      * @param array $data
      *
@@ -71,7 +71,7 @@ class Client extends BaseClient
     }
 
     /**
-     * 查询用户合同平台剩余次数
+     * 查询用户合同平台剩余次数.
      *
      * @return array|\IYin\CloudSign\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      *
@@ -87,7 +87,7 @@ class Client extends BaseClient
     }
 
     /**
-     * 获取云签名和云印章列表
+     * 获取云签名和云印章列表.
      *
      * @param array $data
      *
@@ -105,7 +105,7 @@ class Client extends BaseClient
     }
 
     /**
-     * 创建云签名和云印章时上传文件
+     * 创建云签名和云印章时上传文件.
      *
      * @param array $data
      *
@@ -118,14 +118,14 @@ class Client extends BaseClient
     public function uploadCloudSignAndSealFile(array $data)
     {
         $headers = ['token' => $this->accessToken->getAccessToken()];
-        $data['base64'] = strpos($data['base64'], 'data:image') === false ?
+        $data['base64'] = false === strpos($data['base64'], 'data:image') ?
             'data:image/png;base64,'.$data['base64'] : $data['base64'];
 
         return $this->request('/zuul/open-api/api/seal/file/upload', 'POST', ['json' => $data, 'headers' => $headers]);
     }
 
     /**
-     * 创建云签名
+     * 创建云签名.
      *
      * @param array $data
      *
@@ -143,7 +143,7 @@ class Client extends BaseClient
     }
 
     /**
-     * 创建个人私章
+     * 创建个人私章.
      *
      * @param array $data
      *
@@ -161,7 +161,7 @@ class Client extends BaseClient
     }
 
     /**
-     * 创建云印章
+     * 创建云印章.
      *
      * @param array $data
      *
@@ -177,4 +177,5 @@ class Client extends BaseClient
 
         return $this->httpPostJson('/open-api/api/seal/save/cloud/info', $data);
     }
+
 }

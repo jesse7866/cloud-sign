@@ -4,7 +4,7 @@
  * This file is part of the iyin/cloud-sign.
  *
  * (c) jesse <jesse7866@163.com>
-
+ *
  * This source file is subject to the MIT license that is bundled.
  * with this source code in the file LICENSE.
  */
@@ -17,7 +17,7 @@ use IYin\CloudSign\Kernel\Exceptions\InvalidArgumentException;
 class Fast extends BaseClient
 {
     /**
-     * 单文件单页签章接口
+     * 单文件单页签章接口.
      *
      * @param array $data
      *
@@ -35,7 +35,7 @@ class Fast extends BaseClient
     }
 
     /**
-     * 单文件多页-坐标签章接口
+     * 单文件多页-坐标签章接口.
      *
      * @param array $data
      *
@@ -53,7 +53,7 @@ class Fast extends BaseClient
     }
 
     /**
-     * 单文件单页-骑缝签章接口
+     * 单文件单页-骑缝签章接口.
      *
      * @param array $data
      *
@@ -71,7 +71,7 @@ class Fast extends BaseClient
     }
 
     /**
-     * 单文件单页-多签章接口
+     * 单文件单页-多签章接口.
      *
      * @param array $data
      *
@@ -89,7 +89,7 @@ class Fast extends BaseClient
     }
 
     /**
-     * 单文件多页-坐标-多签章接口
+     * 单文件多页-坐标-多签章接口.
      *
      * @param array $data
      *
@@ -107,7 +107,7 @@ class Fast extends BaseClient
     }
 
     /**
-     * 多文件单页-签章接口
+     * 多文件单页-签章接口.
      *
      * @param array $data
      *
@@ -125,7 +125,7 @@ class Fast extends BaseClient
     }
 
     /**
-     * 多文件多页-坐标签章接口
+     * 多文件多页-坐标签章接口.
      *
      * @param array $data
      *
@@ -143,7 +143,7 @@ class Fast extends BaseClient
     }
 
     /**
-     * 多文件骑缝签-坐标签章接口
+     * 多文件骑缝签-坐标签章接口.
      *
      * @param array $data
      *

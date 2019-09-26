@@ -4,7 +4,7 @@
  * This file is part of the iyin/cloud-sign.
  *
  * (c) jesse <jesse7866@163.com>
-
+ *
  * This source file is subject to the MIT license that is bundled.
  * with this source code in the file LICENSE.
  */
@@ -16,10 +16,10 @@ use IYin\CloudSign\Kernel\BaseClient;
 class Person extends BaseClient
 {
     /**
-     * 获取短信验证码
+     * 获取短信验证码.
      *
-     * @param string $phone
-     * @param string $useType
+     * @param string      $phone
+     * @param string      $useType
      * @param string|null $accountId
      *
      * @return array|\IYin\CloudSign\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
@@ -36,7 +36,7 @@ class Person extends BaseClient
     }
 
     /**
-     * 用户注册手机或邮箱有效性校验
+     * 用户注册手机或邮箱有效性校验.
      *
      * @param string $phoneOrEmail
      *
@@ -54,7 +54,7 @@ class Person extends BaseClient
     }
 
     /**
-     * 个人用户注册
+     * 个人用户注册.
      *
      * @param array $data
      *
@@ -72,7 +72,7 @@ class Person extends BaseClient
     }
 
     /**
-     * 个人两要素校验
+     * 个人两要素校验.
      *
      * @param string $name
      * @param string $idNumber
@@ -89,4 +89,5 @@ class Person extends BaseClient
 
         return $this->httpPostJson('/open-api/verification/interface/identity/card/information', $data);
     }
+
 }

@@ -467,7 +467,8 @@ class Arr
     /**
      * Recursively sort an array by keys and values.
      *
-     * @param  array  $array
+     * @param array $array
+     *
      * @return array
      */
     public static function sortRecursive($array)

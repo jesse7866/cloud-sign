@@ -4,7 +4,7 @@
  * This file is part of the iyin/cloud-sign.
  *
  * (c) jesse <jesse7866@163.com>
-
+ *
  * This source file is subject to the MIT license that is bundled.
  * with this source code in the file LICENSE.
  */
@@ -16,7 +16,7 @@ use IYin\CloudSign\Kernel\BaseClient;
 class Ocr extends BaseClient
 {
     /**
-     * 企业执照 OCR 识别
+     * 企业执照 OCR 识别.
      *
      * @param array|string $files
      *
@@ -33,10 +33,10 @@ class Ocr extends BaseClient
     }
 
     /**
-     * 身份证 OCR 识别
+     * 身份证 OCR 识别.
      *
      * @param array|string $files
-     * @param string $type
+     * @param string       $type
      *
      * @return array|\IYin\CloudSign\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      *
@@ -61,4 +61,5 @@ class Ocr extends BaseClient
 
         return $token;
     }
+
 }

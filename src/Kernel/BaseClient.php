@@ -142,12 +142,12 @@ class BaseClient
     }
 
     /**
-     * Upload file, header with token
+     * Upload file, header with token.
      *
      * @param string $url
-     * @param array $files
-     * @param array $form
-     * @param array $headers
+     * @param array  $files
+     * @param array  $form
+     * @param array  $headers
      *
      * @return array|Support\Collection|object|ResponseInterface|string
      *
@@ -192,8 +192,8 @@ class BaseClient
     /**
      * @param string $url
      * @param string $method
-     * @param array $options
-     * @param bool $returnRaw
+     * @param array  $options
+     * @param bool   $returnRaw
      *
      * @return array|Support\Collection|object|ResponseInterface|string
      *
@@ -299,7 +299,7 @@ class BaseClient
     }
 
     /**
-     * Get format query params
+     * Get format query params.
      *
      * @param array $data
      *
@@ -311,7 +311,7 @@ class BaseClient
     protected function formatQueryWithSign($data = []): array
     {
         $token = $this->accessToken->getAccessToken();
-        $timestamp = (string)floor(microtime(true) * 1000);
+        $timestamp = (string) floor(microtime(true) * 1000);
         $nonce_str = Str::random(10);
         $sign_type = $this->app->config->get('sign_type');
         $signArray = compact('token', 'timestamp', 'nonce_str', 'sign_type');
@@ -327,17 +327,18 @@ class BaseClient
     /**
      * @param array $data
      * @param array $required
+     *
      * @throws InvalidArgumentException
      */
     protected function verificationRequired(array $data, array $required = [])
     {
         if (empty($required)) {
-            return ;
+            return;
         }
 
         foreach ($required as $filed) {
             $v = Arr::get($data, $filed, null);
-            if ($v === null) {
+            if (null === $v) {
                 throw new InvalidArgumentException(sprintf('Attribute "%s" is required!', $filed));
             } else {
                 if (empty($v)) {
@@ -348,27 +349,28 @@ class BaseClient
     }
 
     /**
-     * 参数参与签名
+     * 参数参与签名.
      *
-     * @param array $data
+     * @param array  $data
      * @param string $sign_type
+     *
      * @return string
      */
     protected function signature(array $data, $sign_type)
     {
         ksort($data, SORT_STRING);
         $str = '';
-        foreach ($data as $k => $v ) {
+        foreach ($data as $k => $v) {
             if (empty($v)) {
                 continue;
             }
-            $v = is_array($v) ? json_encode($v, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES) : $v;
+            $v = is_array($v) ? json_encode($v, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) : $v;
             $str .= $k.'='.$v.'&';
         }
 
         $key = $this->app->config->get('secret');
         $str .= 'key='.$key;
-        $sign_type = isset($data['sign_type']) ? $data['sign_type'] : $sign_type ;
+        $sign_type = isset($data['sign_type']) ? $data['sign_type'] : $sign_type;
 
         if ('HMAC-SHA256' === ($sign_type = $sign_type ?? 'MD5')) {
             return strtoupper(hash_hmac('sha256', $str, $key));
@@ -379,7 +381,7 @@ class BaseClient
     }
 
     /**
-     * 获取原始数据
+     * 获取原始数据.
      *
      * @param bool $raw
      *

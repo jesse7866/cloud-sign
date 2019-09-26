@@ -29,7 +29,8 @@ use Psr\Http\Message\ResponseInterface;
  */
 abstract class AccessToken implements AccessTokenInterface
 {
-    use HasHttpRequests, InteractsWithCache;
+    use HasHttpRequests;
+    use InteractsWithCache;
 
     /**
      * @var \Pimple\Container
@@ -106,7 +107,7 @@ abstract class AccessToken implements AccessTokenInterface
     }
 
     /**
-     * 获取 Token
+     * 获取 Token.
      *
      * @param bool $refresh
      *
@@ -174,7 +175,7 @@ abstract class AccessToken implements AccessTokenInterface
         $lifetime = $lifetime ?? $this->maxExpiresIn;
         $this->getCache()->set(
             $this->getCacheKey(),
-            array_merge($token, ['expires_in' => $lifetime,]),
+            array_merge($token, ['expires_in' => $lifetime]),
             $lifetime - $this->safeSeconds);
 
         if (!$this->getCache()->has($this->getCacheKey())) {
@@ -216,7 +217,7 @@ abstract class AccessToken implements AccessTokenInterface
         $result = json_decode($response->getBody()->getContents(), true);
         $formatted = $this->castResponseToType($response, $this->app['config']->get('response_type'));
 
-        if (isset($result['code']) && $result['code'] !== 0 && empty($result['data'][$this->tokenKey])) {
+        if (isset($result['code']) && 0 !== $result['code'] && empty($result['data'][$this->tokenKey])) {
             throw new HttpException('Request access_token fail: '.json_encode($result, JSON_UNESCAPED_UNICODE), $response, $formatted);
         }
 

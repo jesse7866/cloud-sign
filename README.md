@@ -1,27 +1,58 @@
-<h1 align="center"> /cloud-sign </h1>
+<h1 align="center"> 安印云签 / iyin cloud sign </h1>
 
-<p align="center"> A i-yin cloud sign SDK..</p>
+<p align="center"> A iyin cloud sign SDK.</p>
 
 
 ## Installing
 
 ```shell
-$ composer require iyin/cloud-sign -vvv
+$ composer require iyin/cloud-sign:dev-master -vvv
 ```
 
 ## Usage
 
-TODO
+```php
+use IYin\CloudSign\Application;
 
-## Contributing
+$config = [
+    'app_id'  => 'xxxxxx',         // AppID
+    'secret'  => 'xxxxxx',     // AppSecret
+    'sign_type' => 'MD5',      // 默认为 MD5，支持HMAC-SHA256 和 MD5
 
-You can contribute in one of three ways:
+    'log' => [
+        'default' => 'dev', // 默认使用的 channel，生产环境可以改为下面的 prod
+        'channels' => [
+            // 测试环境
+            'dev' => [
+                'driver' => 'single',
+                'path' => '/tmp/cloud-sign.log',
+                'level' => 'debug',
+            ],
+            // 生产环境
+            'prod' => [
+                'driver' => 'daily',
+                'path' => '/tmp/cloud-sign.log',
+                'level' => 'info',
+            ],
+        ],
+    ],
 
-1. File bug reports using the [issue tracker](https://github.com/iyin/cloud-sign/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/iyin/cloud-sign/issues).
-3. Contribute new features or update the wiki.
+    'http' => [
+        'max_retries' => 1,
+        'retry_delay' => 500,
+        'timeout' => 5,
+        'base_uri' => 'https://cloud-sign.i-yin.com.cn',
+    ],
 
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
+];
+
+$app = new Application($config);
+
+$params = [...];
+$result = $app->platform_sign->singleSign($params);
+
+```
+
 
 ## License
 

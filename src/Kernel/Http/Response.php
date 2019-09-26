@@ -16,7 +16,6 @@ use IYin\CloudSign\Kernel\Support\Collection;
 use IYin\CloudSign\Kernel\Support\XML;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use Psr\Http\Message\ResponseInterface;
-use IYin\CloudSign\Kernel\Http\ErrorCode;
 
 /**
  * Class Response.
@@ -82,7 +81,7 @@ class Response extends GuzzleResponse
 
         $array = json_decode($content, true, 512, JSON_BIGINT_AS_STRING);
 
-        if ($array['code'] !== 0) {
+        if (0 !== $array['code']) {
 //            $msg = array_key_exists($array['code'], $this->errorCode) ? $this->errorCode[$array['code']] : $array['msg'];
             $msg = $array['msg'];
             throw new HttpException($msg, $this, $array);

@@ -4,7 +4,7 @@
  * This file is part of the iyin/cloud-sign.
  *
  * (c) jesse <jesse7866@163.com>
-
+ *
  * This source file is subject to the MIT license that is bundled.
  * with this source code in the file LICENSE.
  */
@@ -16,7 +16,7 @@ use IYin\CloudSign\Kernel\BaseClient;
 class Company extends BaseClient
 {
     /**
-     * 企业用户注册
+     * 企业用户注册.
      *
      * @param array $data
      *
@@ -34,7 +34,7 @@ class Company extends BaseClient
     }
 
     /**
-     * 企业三要素校验
+     * 企业三要素校验.
      *
      * @param string $enterpriseName
      * @param string $credentialsEncode
@@ -52,4 +52,5 @@ class Company extends BaseClient
 
         return $this->httpPostJson('/open-api/verification/interface/verifyEnterpriseInfo', $data);
     }
+
 }

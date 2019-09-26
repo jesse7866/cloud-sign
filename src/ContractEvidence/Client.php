@@ -4,7 +4,7 @@
  * This file is part of the iyin/cloud-sign.
  *
  * (c) jesse <jesse7866@163.com>
-
+ *
  * This source file is subject to the MIT license that is bundled.
  * with this source code in the file LICENSE.
  */
@@ -16,7 +16,7 @@ use IYin\CloudSign\Kernel\BaseClient;
 class Client extends BaseClient
 {
     /**
-     * 合同存证接口
+     * 合同存证接口.
      *
      * @param string $compactId
      *
@@ -34,7 +34,7 @@ class Client extends BaseClient
     }
 
     /**
-     * 合同取证接口
+     * 合同取证接口.
      *
      * @param string $idType
      * @param string $idNum
@@ -52,4 +52,5 @@ class Client extends BaseClient
 
         return $this->httpPostJson('/open-api/webank/evidence/findE', $data);
     }
+
 }
