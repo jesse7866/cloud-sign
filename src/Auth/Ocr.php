@@ -61,5 +61,4 @@ class Ocr extends BaseClient
 
         return $token;
     }
-
 }

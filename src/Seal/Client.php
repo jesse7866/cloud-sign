@@ -177,5 +177,4 @@ class Client extends BaseClient
 
         return $this->httpPostJson('/open-api/api/seal/save/cloud/info', $data);
     }
-
 }

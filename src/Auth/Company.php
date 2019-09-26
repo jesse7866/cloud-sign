@@ -52,5 +52,4 @@ class Company extends BaseClient
 
         return $this->httpPostJson('/open-api/verification/interface/verifyEnterpriseInfo', $data);
     }
-
 }

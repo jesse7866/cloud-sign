@@ -42,5 +42,4 @@ class Client extends BaseClient
 
         return $this->httpPostJson('/open-api/application/verify/sign/file', $data);
     }
-
 }

@@ -159,5 +159,4 @@ class Fast extends BaseClient
 
         return $this->httpPostJson('/open-api/api/fast/batchFilePerforationCoordSign', $data);
     }
-
 }

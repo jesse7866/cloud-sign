@@ -393,5 +393,4 @@ class BaseClient
 
         return $this;
     }
-
 }

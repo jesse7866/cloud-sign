@@ -22,5 +22,4 @@ class ServiceProvider implements ServiceProviderInterface
             return new Client($app);
         };
     }
-
 }

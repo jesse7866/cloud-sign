@@ -82,8 +82,8 @@ class Response extends GuzzleResponse
         $array = json_decode($content, true, 512, JSON_BIGINT_AS_STRING);
 
         if (0 !== $array['code']) {
-//            $msg = array_key_exists($array['code'], $this->errorCode) ? $this->errorCode[$array['code']] : $array['msg'];
             $msg = $array['msg'];
+
             throw new HttpException($msg, $this, $array);
         }
 

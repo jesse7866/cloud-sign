@@ -89,5 +89,4 @@ class Person extends BaseClient
 
         return $this->httpPostJson('/open-api/verification/interface/identity/card/information', $data);
     }
-
 }

@@ -354,5 +354,4 @@ class Client extends BaseClient
 
         return $token;
     }
-
 }

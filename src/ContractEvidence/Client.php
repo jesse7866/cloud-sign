@@ -52,5 +52,4 @@ class Client extends BaseClient
 
         return $this->httpPostJson('/open-api/webank/evidence/findE', $data);
     }
-
 }

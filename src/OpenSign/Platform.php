@@ -159,5 +159,4 @@ class Platform extends BaseClient
 
         return $this->httpPostJson('/open-api/api/platform/batchFilePerforationSignCoordinate', $data);
     }
-
 }
